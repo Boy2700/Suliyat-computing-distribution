@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniform Distribution Calculator</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="s.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Uniform Distribution</h1>
+        </center>
+
+
+        <div class="input-section">
+
+            <label for="minValue">Minimum value (a):</label>
+            <input type="number" id="minValue" step="0.01" required><br>
+            <label for="maxValue">Maximum value (b):</label>
+            <input type="number" id="maxValue" step="0.01" required><br>
+            <label for="xValue">Value (X):</label>
+            <input type="number" id="xValue" step="0.01" required><br>
+        </div>
+
+        <button onclick="calculate()">Calculate</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="logout()">Logout</button>
+
+        <div id="result" class="result"></div>
+    </div>
+    <footer>
+        <p>All rights reserved &copy; 2024 Web Application for Computing Distributions || Suliyat Opoola</p>
+    </footer>
+    <script src="n.js"></script>
+    <script>
+        // scripts.js to calculate normal 
+
+        function calculate() {
+            const a = parseFloat(document.getElementById("minValue").value);
+            const b = parseFloat(document.getElementById("maxValue").value);
+            const x = parseFloat(document.getElementById("xValue").value);
+
+            if (a >= b) {
+                document.getElementById("result").innerHTML = "<p>Minimum value (a) must be less than Maximum value (b).</p>";
+                return;
+            }
+
+            if (x < a || x > b) {
+                document.getElementById("result").innerHTML = "<p>The value (X) must be within the range [a, b].</p>";
+                return;
+            }
+
+            const cdf = (x - a) / (b - a);
+            document.getElementById("result").innerHTML = `<p>The Cumulative Distribution Function (CDF) value at X = ${x} for the uniform distribution with range [${a}, ${b}] is: <strong>${cdf.toFixed(4)}</strong>.</p>`;
+        }
+
+        function reset() {
+            document.getElementById("minValue").value = "";
+            document.getElementById("maxValue").value = "";
+            document.getElementById("xValue").value = "";
+            document.getElementById("result").innerHTML = "";
+
+        }
+    </script>
+    <script src="script.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+</body>
+
+</html>

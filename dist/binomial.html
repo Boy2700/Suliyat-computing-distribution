@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="s.css">
+    <title>Binomial Probability Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Binomial Distribution</h2>
+        <form id="binomialForm">
+            <label for="trials">Number of trials (n):</label>
+            <input type="number" id="trials" name="trials" required>
+            <label for="successes">Number of successful outcomes (x):</label>
+            <input type="number" id="successes" name="successes" required>
+            <label for="probability">Probability of success (P):</label>
+            <input type="number" id="probability" name="probability" step="0.01" min="0" max="1" required>
+            <button type="button" onclick="calculateProbability()">Calculate</button>
+        </form>
+        <center>
+            <div id="result"></div><br>
+            <button type="button" onclick="resetForm()">Reset</button>
+            <br>
+            <button type="button" onclick="logout()">Logout</button></div>
+    </center>
+
+    <footer>
+        <p>All rights reserved &copy; 2024 Web Application for Computing Distributions || Suliyat Opoola</p>
+    </footer>
+    <script>
+        function calculateProbability() {
+            var n = parseInt(document.getElementById('trials').value);
+            var x = parseInt(document.getElementById('successes').value);
+            var p = parseFloat(document.getElementById('probability').value);
+
+            var binomialCoefficient = factorial(n) / (factorial(x) * factorial(n - x));
+            var probability = binomialCoefficient * Math.pow(p, x) * Math.pow(1 - p, n - x);
+
+            document.getElementById('result').innerHTML = "<p>The probability (P(x)) of exactly " + x + " successes in " + n + " trials is: " + probability.toFixed(4) + "</p>";
+        }
+
+        function factorial(num) {
+            var result = 1;
+            for (var i = 2; i <= num; i++) {
+                result *= i;
+            }
+            return result;
+        }
+
+        function resetForm() {
+            document.getElementById('binomialForm').reset();
+            document.getElementById('result').innerHTML = "";
+        }
+    </script>
+    <script src="n.js"></script>
+    <script src="script.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+
+</body>
+
+
+
+</html>

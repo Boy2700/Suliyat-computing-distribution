@@ -1,0 +1,87 @@
+body {
+    min-height: 100vh;
+    position: relative;
+    margin-bottom: 100px;
+    /* Height of the footer */
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    /* Adjusted from 5px */
+    font-family: 'PT Sans', sans-serif;
+    -webkit-box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+    box-shadow: -1px -2px 42px -19px rgba(0, 0, 0, 0.74);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #f1da36;
+    /* Adjusted from #4CAF50 */
+    color: white;
+    border: black;
+    border-radius: .015rem;
+    width: 30%;
+    margin-top: 10px;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 2px solid;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #e2c74f;
+    /* Adjusted from #45a049 */
+}
+
+.numbers {
+    margin-bottom: 10px;
+}
+
+.statistics {
+    margin-bottom: 10px;
+}
+
+.numbers,
+.statistics {
+    border-radius: 4rem;
+    /* Added */
+    padding: 10px;
+    /* Added */
+    background-color: #f8f9fa4f;
+    /* Added */
+    text-align: center;
+    /* Added */
+}
+
+.statistics strong {
+    font-size: 1.3em;
+    /* Adjusted from 1.1em */
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
